@@ -69,6 +69,10 @@ app.delete('/jogos/:id', (req,res)=>{
     const id = req.params.id -1;
     const jogoAexcluir = jogos[id];
     jogos.splice(id,1);
+    
+    if(!jogoAexcluir) {
+        res.send('Id Inválido. Jogo Não Encontrado!');
+    }
 
     res.send(`O jogo ${jogoAexcluir} foi excluído com sucesso.`);
 });
